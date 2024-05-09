@@ -1,6 +1,6 @@
 const startDB = require("./mongodb");
 
-class Leaders{ 
+class Loaders{ 
     start(){
      startDB();
     }
