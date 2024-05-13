@@ -1,5 +1,5 @@
 const express = require("express");
-
+const rotas = require("./routes");
 const app = express();
 
 app.get("", (req, res) => {
@@ -7,5 +7,5 @@ app.get("", (req, res) => {
         message: "Hello World!"
     })
 })
-
+app.use(rotas);
 app.listen(8000, () => console.log("servidor rodando!"));
