@@ -3,9 +3,10 @@ const UsuarioModel = require("../Models/UsuarioModel");
 class UsuarioController {
 
 async create (req, res) {
-   const usuario = await UsuarioModel.create(req.body);
+   console.log (req.body) 
+  //    const usuario = await UsuarioModel.create(req.body);//
 
-   return res.status(200).json(usuario);
+   return res.status(200).json();
 }
 
 edit (req, res) {
