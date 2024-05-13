@@ -1,13 +1,13 @@
 const { Router } = require("express");
-const UsuarioController = require("./Controllers/UsuarioController");
+const ProjetoController = require("./Controllers/ProjetoController");
+const SessoesController = require("./Controllers/SessoesController"); 
 
 const rotas = Router();
 
-rotas.post('/usuarios', UsuarioController.create);
-
-
-
-
+//ProjetoS
+rotas.post('/projetos', ProjetoController.create);
+rotas.get('/projetos', ProjetoController.read);
+rotas.delete('/projetos/:id', ProjetoController.delete);
 
 
 module.exports = rotas;
