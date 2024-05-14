@@ -8,6 +8,10 @@ const rotas = Router();
 rotas.post('/projetos', ProjetoController.create);
 rotas.get('/projetos', ProjetoController.read);
 rotas.delete('/projetos/:id', ProjetoController.delete);
+rotas.put('/projetos/:id', ProjetoController.update);
+
+
+
 
 
 module.exports = rotas;
