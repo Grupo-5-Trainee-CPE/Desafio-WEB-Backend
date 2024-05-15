@@ -1,11 +1,13 @@
 const express = require("express");
 const rotas = require("./routes");
+const cors = require("cors");
+
 const app = express();
 
-app.get("", (req, res) => {
-    return res.json({
-        message: "Hello World!"
-    })
-})
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(rotas);
-app.listen(8000, () => console.log("servidor rodando!"));
+app.use("*", (req, res) => res.status(404).json({ message: `Rota '${req.baseUrl}' não encontrada!` }));
+app.use(cors());
+
+module.exports = app;  
