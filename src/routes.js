@@ -13,6 +13,7 @@ rotas.delete("/projetos/:id", ProjetoController.delete);
 rotas.put("/projetos/:id", ProjetoController.update);
 
 //USUÁRIOS
+rotas.post("/usuarios", UsuarioValidator.create, UsuarioController.create);
 rotas.get("/usuarios", UsuarioController.read);
 rotas.delete(
   "/usuarios/:id",
