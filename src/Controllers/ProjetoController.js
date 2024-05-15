@@ -9,8 +9,8 @@ async create (req, res) {
 }
 
 async delete (req, res) {
-    const {id} = req.params 
-    await ProjetoModel.findByIdAndDelete(id) 
+    const { id } = req.params; 
+    await ProjetoModel.findByIdAndDelete(id); 
     return res.status(200).json({"mensagem": "Projeto deletado com sucesso!"});
 }
 

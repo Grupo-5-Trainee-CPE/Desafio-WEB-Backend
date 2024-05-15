@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
 const ProjetoSchema = new Schema({
@@ -7,7 +6,7 @@ const ProjetoSchema = new Schema({
     type: String,
     unique: true,
   },
-  nome: {
+    nome: {
     type: String,
     unique: true,
   },
