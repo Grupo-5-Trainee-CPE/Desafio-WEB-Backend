@@ -1,10 +1,11 @@
 const { Router } = require("express");
 const ProjetoController = require("./Controllers/ProjetoController");
 const UsuarioValidator = require("./Validators/UsuarioValidator");
-const SessoesController = require("./Controllers/SessoesController");
+const SessoesController = require("./Controllers/SessoesController"); // Importa o controlador SessoesController do arquivo './Controllers/SessoesController'.
 const UsuarioController = require("./Controllers/UsuarioController");
 
 const ProjetoValidators = require("./Validators/ProjetoValidator");
+const SessoesValidator = require("./Validators/SessoesValidator");
 
 const rotas = Router();
 
@@ -29,8 +30,8 @@ rotas.delete(
 rotas.put("/usuarios/:id", UsuarioValidator.update, UsuarioController.update);
 
 //SESSÕES
-rotas.post("/sessoes", SessoesController.create);
-rotas.get("/sessoes", SessoesController.read);
-rotas.delete("/sessoes/:id", SessoesController.delete);
+rotas.post("/sessoes", SessoesValidator.create, SessoesController.create);// define a rota POST para criar uma nova sessão, usando o método create do Controller.
+rotas.get("/sessoes", SessoesController.read);//define a rota get 
+rotas.delete("/sessoes/:id", SessoesValidator.destroy, SessoesController.delete);//define delete para uma sessão ESPECIFICADA pelo Id
 
-module.exports = rotas;
+module.exports = rotas; // Exporta rotas 
