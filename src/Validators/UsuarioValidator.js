@@ -14,7 +14,7 @@ const create = validateRequest({
       .string()
       .email({ required_error: "Email inválido" })
       .nonempty({ required_error: "Email não pode ser vazio" }),
-    senha: z.string().nonempty({ required_error: "Senha não pode ser vazia" }),
+    senha: z.string({ required_error: "Senha não pode ser vazia" }),
   }),
 });
 

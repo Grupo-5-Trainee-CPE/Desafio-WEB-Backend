@@ -7,12 +7,12 @@ const SessoesSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'usuarios',
         unique: true,
-    }
+    },
 
-    /*id_projeto: { 
+    id_projeto: { 
         type: Schema.Types.ObjectId,
         ref: 'projetos'
-    }*/  //DESCOMENTAR QUANDO TIVER O MODELO DE PROJETOS
+    }
 }, {
     timestamps: true //Tempo Login
 });
