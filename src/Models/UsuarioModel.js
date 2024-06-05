@@ -9,7 +9,7 @@ const UsuarioSchema = new Schema({
   cargo : String,
   email : { type: String, unique: true, },
   senha : { type: String, select: false },
-  nivel : Boolean
+  nivel : { type: Boolean, default: false },
 });
 
 UsuarioSchema.pre("save", async function(next) {

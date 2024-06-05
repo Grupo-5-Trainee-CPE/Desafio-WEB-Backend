@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 function verificarJwt(req, res, next) {
-
+    
     const authHeader = req.headers.authorization || req.headers.Authorization;
 
     if (!authHeader) return res.status(403).json({ message: "Header de autorização não encontrado" });

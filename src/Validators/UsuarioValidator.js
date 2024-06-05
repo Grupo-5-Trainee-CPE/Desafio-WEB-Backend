@@ -7,8 +7,7 @@ const create = validateRequest({
         nome: z.string({ required_error: "Nome inválido" }).nonempty({ required_error: "Nome não pode ser vazio"}),
         cargo: z.string({ required_error: "Cargo inválido" }).nonempty({ required_error: "Cargo não pode ser vazio"}),
         email: z.string().email({ required_error: "Email inválido"}).nonempty({ required_error: "Email não pode ser vazio"}),
-        senha: z.string().nonempty({ required_error: "Senha não pode ser vazia"}),
-        nivel: z.boolean({ required_error: "Nível não pode ser vazio"}), 
+        senha: z.string({ required_error: "Senha não pode ser vazia"}),
     }),
 });
 
