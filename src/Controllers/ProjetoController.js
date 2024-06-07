@@ -2,27 +2,45 @@ const ProjetoModel = require("../Models/ProjetoModel");
 
 class ProjetoController {
   async create(req, res) {
-    const projeto = await ProjetoModel.create(req.body);
-    return res.status(200).json(projeto);
+    try {
+      const projeto = await ProjetoModel.create(req.body);
+      return res.status(200).json(projeto);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   }
 
   async delete(req, res) {
-    const { id } = req.params;
-    await ProjetoModel.findByIdAndDelete(id);
-    return res.status(200).json({ mensagem: "Projeto deletado com sucesso!" });
+    try {
+      const { id } = req.params;
+      await ProjetoModel.findByIdAndDelete(id);
+      return res
+        .status(200)
+        .json({ mensagem: "Projeto deletado com sucesso!" });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   }
 
   async update(req, res) {
-    const { id } = req.params;
+    try {
+      const { id } = req.params;
 
-    const projeto = await ProjetoModel.findByIdAndUpdate(id, req.body);
+      const projeto = await ProjetoModel.findByIdAndUpdate(id, req.body);
 
-    return res.status(200).json(projeto);
+      return res.status(200).json(projeto);
+    } catch (error) {
+      res.status(500).json({ message: "Erro", error: error.message });
+    }
   }
 
   async read(req, res) {
-    const projetos = await ProjetoModel.find();
-    return res.status(200).json(projetos);
+    try {
+      const projetos = await ProjetoModel.find();
+      return res.status(200).json(projetos);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   }
 }
 module.exports = new ProjetoController();
